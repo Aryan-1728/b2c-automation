@@ -20,9 +20,15 @@ import static io.cucumber.junit.platform.engine.Constants.*;
         key = PLUGIN_PROPERTY_NAME,
         value = "net.serenitybdd.cucumber.core.plugin.SerenityReporterParallel"
 )
+
 @ConfigurationParameter(
         key = FILTER_TAGS_PROPERTY_NAME,
-        value = "@globalLocation"
+        value = "@signIn"
+)
+
+@ConfigurationParameter(
+        key = "cucumber.execution.parallel.enabled" ,
+        value = "false"
 )
 
 public class CucumberTestSuite {

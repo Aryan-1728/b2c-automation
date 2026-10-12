@@ -5,6 +5,8 @@ import com.bpcl.automation.driver.DriverManager;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
+import io.cucumber.java.BeforeAll;
+import io.cucumber.java.AfterAll;
 import net.serenitybdd.core.Serenity;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -14,10 +16,22 @@ import java.io.IOException;
 
 public class TestHooks {
 
+    @BeforeAll
+    public static void startServer() {
+        AppiumServer.start();
+    }
+
     @Before
     public void setup() {
-        AppiumServer.start();
+
         DriverManager.initializeDriver();
+
+        // Launch the application at the start of each scenario
+        String appPackage = "com.acn.bootstrap";
+
+        DriverManager.getDriver().activateApp(appPackage);
+
+        System.out.println("Application launched for new scenario");
     }
 
     @AfterStep
@@ -26,12 +40,16 @@ public class TestHooks {
         File screenshotFile = DriverManager.getDriver()
                 .getScreenshotAs(OutputType.FILE);
 
-        String path = System.getProperty("user.dir")
-                + "/target/screenshots/Screenshot-"
-                + System.currentTimeMillis()
-                + ".png";
+        File directory = new File(
+                System.getProperty("user.dir") + "/target/screenshots"
+        );
 
-        File destination = new File(path);
+        FileUtils.forceMkdir(directory);
+
+        File destination = new File(
+                directory,
+                "Screenshot-" + System.currentTimeMillis() + ".png"
+        );
 
         FileUtils.copyFile(screenshotFile, destination);
 
@@ -43,7 +61,22 @@ public class TestHooks {
 
     @After
     public void tearDown() {
-        DriverManager.quitDriver();
+
+        if (DriverManager.getDriver() != null) {
+
+            // Close the app after the scenario
+            DriverManager.getDriver()
+                    .terminateApp("com.acn.bootstrap");
+
+            System.out.println("Application terminated after scenario");
+
+            // Close the driver session
+            DriverManager.quitDriver();
+        }
+    }
+
+    @AfterAll
+    public static void stopServer() {
         AppiumServer.stop();
     }
 }
