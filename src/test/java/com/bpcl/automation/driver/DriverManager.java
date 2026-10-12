@@ -91,7 +91,7 @@ public class DriverManager {
 
             wait = new WebDriverWait(
                     DriverManager.getDriver(),
-                    Duration.ofSeconds(20)
+                    Duration.ofSeconds(40)
             );
 
         } catch (MalformedURLException e) {

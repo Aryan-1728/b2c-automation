@@ -6,11 +6,27 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.junit.jupiter.api.Assertions;
 
+import java.util.Random;
+
 public class SignInPage {
 
-    private static final String TEST_MOBILE_NUMBER = "7437480796";
+    private String TEST_MOBILE_NUMBER;
+
     private static final String INVALID_MOBILE_NUMBER = "1234567890";
     private static final String TEST_OTP = "123456";
+
+    private static final String[] MOBILE_NUMBERS = {
+            "9000003001",
+            "9000020002",
+            "9000003003",
+            "9000090004",
+            "8000040005",
+            "9007000006",
+            "9000005007",
+            "9000100008",
+            "9000006009",
+            "9000700010"
+    };
 
     public void clickSignUp() {
         DriverManager.getWait()
@@ -54,6 +70,12 @@ public class SignInPage {
     }
 
     public void enterValidMobileNumber() {
+        TEST_MOBILE_NUMBER = MOBILE_NUMBERS[
+                new Random().nextInt(MOBILE_NUMBERS.length)
+                ];
+
+        System.out.println("Selected mobile number: " + TEST_MOBILE_NUMBER);
+
         WebElement mobileField = getMobileNumberField();
 
         mobileField.clear();
