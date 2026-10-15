@@ -14,4 +14,6 @@ public class loginLocator {
     public static final By confirmMpin = AppiumBy.id("com.acn.bootstrap:id/edit_re_enter_mpin");
     public static final By confirmBtn = AppiumBy.id("com.acn.bootstrap:id/btn_confirm");
     public static final By dontAllowBtn = AppiumBy.id("com.acn.bootstrap:id/btn_dont_allow");
+    public static final By existingUserMpin = AppiumBy.xpath("//android.widget.EditText[@resource-id=\"com.acn.bootstrap:id/pinotp\"]");
+    public static final By submitExistingMpin = AppiumBy.xpath("//android.widget.Button[@resource-id=\"com.acn.bootstrap:id/btn_submit\"]");
 }

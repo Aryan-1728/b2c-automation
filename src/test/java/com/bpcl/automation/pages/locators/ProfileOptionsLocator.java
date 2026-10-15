@@ -91,4 +91,12 @@ public final class ProfileOptionsLocator {
             AppiumBy.xpath(
                     "//android.widget.TextView[@content-desc=\"Button, Sign In\"]"
             );
+
+    public static final By profileBtn = AppiumBy.xpath("//android.widget.FrameLayout[@content-desc='Profile']");
+    public static final By deleteAccountBtn = AppiumBy.xpath("//android.view.ViewGroup[@resource-id='com.acn.bootstrap:id/clDeleteAccount']");
+    public static final By deleteAccountPopupMsg = AppiumBy.xpath("//android.widget.TextView[@resource-id='android:id/message']");
+    public static final By goToSupportBtn = AppiumBy.xpath("//android.widget.Button[@resource-id='android:id/button1']");
+
+    public static final By supportFaqPage = AppiumBy.xpath("//android.widget.TextView[@resource-id='com.acn.bootstrap:id/tv_how_can']"
+    );
 }

@@ -2,6 +2,7 @@
 package com.bpcl.automation.stepDefinition;
 
 import com.bpcl.automation.pages.DashboardPage;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
@@ -216,5 +217,181 @@ public class DashboardSteps {
     @When("The user taps the Email Us CTA")
     public void theUserTapsEmailUsCTA() {
         dashboardPage.tapEmailUsCTA();
+    }
+
+    @Given("The user clicks on support button")
+    public void theUserClicksOnSupportButton(){
+        dashboardPage.verifyTermsAndConditions();
+    }
+
+    @Then("The user clicks on Terms And Conditions")
+    public void theUserClicksOnTermsAndConditions(){
+        dashboardPage.clickTermsAndConditions();
+    }
+
+    @Then("The user is able to see the page")
+    public void theUserIsAbleToSeeThePage(){
+        dashboardPage.verifyTAndC();
+    }
+
+    @Then("The user clicks on Privacy Policy")
+    public void theUserClicksOnPrivacyPolicy() {
+        dashboardPage.clickPrivacyPolicy();
+    }
+
+    @Then("The user is able to see the Privacy Policy page")
+    public void theUserIsAbleToSeeThePrivacyPolicyPage() {
+        dashboardPage.verifyPrivacyPolicyPage();
+    }
+
+
+    @Given("User opens Support & FAQ page")
+    public void userOpensSupportAndFAQPage(){
+        dashboardPage.clickSupportButton();
+    }
+
+    @Then("User clicks on Raise Ticket")
+    public void userClicksOnRaiseTicket(){
+        dashboardPage.clickRaiseButton();
+    }
+    
+    @Then("User should navigate to the Raise Ticket page")
+    public void userShouldNavigateToTheRaiseTicketPage(){
+        dashboardPage.verifyRaiseTicket();
+    }
+
+    @Given("The user opens the Support page")
+    public void theUserOpensTheSupportPage() {
+        dashboardPage.clickSupportButton();
+    }
+
+    @When("The user clicks on Chat With Urja")
+    public void theUserClicksOnChatWithUrja() {
+        dashboardPage.clickChatWithUrjaButton();
+    }
+
+    @Then("The user should navigate to the Chat With Urja page")
+    public void theUserShouldNavigateToChatWithUrjaPage() {
+        dashboardPage.verifyChatWithUrjaPage();
+    }
+
+    @Given("The user opens the Support page for FAQ Search")
+    public void theUserOpensTheSupportPageForFAQSearch() {
+        dashboardPage.clickSupportButton();
+    }
+
+    @When("The user enters {string} in the search bar")
+    public void theUserEntersInTheSearchBar(String keyword) {
+        dashboardPage.enterKeyword(keyword);
+    }
+
+    @Then("Relevant FAQ search results should be displayed")
+    public void relevantFaqSearchResultsShouldBeDisplayed() {
+        dashboardPage.verifyLpgSearchResult();
+    }
+
+    @Given("The user opens the Support page for FAQ Accordion")
+    public void theUserOpensTheSupportPageForFAQAccordion() {
+        dashboardPage.clickSupportButton();
+    }
+
+    @When("The user clicks on MAK FAQ")
+    public void theUserClicksOnMAKFAQ() {
+        dashboardPage.clickMakFaq();
+    }
+
+    @When("The user clicks on a FAQ question")
+    public void theUserClicksOnAFaqQuestion() {
+        dashboardPage.clickFaqQuestion();
+    }
+
+    @Then("The FAQ answer should be displayed")
+    public void theFAQAnswerShouldBeDisplayed() {
+        dashboardPage.verifyFaqAnswer();
+    }
+
+    @Given("The user opens the Support page for FAQ Category Navigation")
+    public void theUserOpensTheSupportPageForFAQCategoryNavigation() {
+        dashboardPage.clickSupportButton();
+    }
+
+    @When("The user clicks on BeCafe FAQ category")
+    public void theUserClicksOnBeCafeFAQCategory() {
+        dashboardPage.clickBeCafeFaq();
+    }
+
+    @Then("The BeCafe FAQ page should be displayed")
+    public void theBeCafeFaqPageShouldBeDisplayed() {
+        dashboardPage.verifyBeCafeFaqPage();
+    }
+
+    @Given("The user opens the Support page for FAQ Tiles")
+    public void theUserOpensTheSupportPageForFAQTiles() {
+        dashboardPage.clickSupportButton();
+    }
+
+    @When("The user clicks on each FAQ tile one by one")
+    public void theUserClicksOnEachFAQTileOneByOne() {
+        dashboardPage.verifyAllTilesNavigation();
+    }
+
+    @Then("The respective FAQ pages should open successfully")
+    public void theRespectiveFAQPagesShouldOpenSuccessfully() {
+    }
+
+    @Given("The user opens the Support page for Quick Help Categories")
+    public void theUserOpensTheSupportPageForQuickHelpCategories() {
+        dashboardPage.clickSupportButton();
+    }
+
+    @When("The user clicks on each Quick Help category")
+    public void theUserClicksOnEachQuickHelpCategory() {
+        dashboardPage.verifyAllQuickHelpCategories();
+    }
+
+    @Then("Relevant FAQs should be displayed for each selected category")
+    public void relevantFaqsShouldBeDisplayedForEachSelectedCategory() {
+
+    }
+
+    @Given("The user opens the Support page for Quick Help Section")
+    public void theUserOpensTheSupportPageForQuickHelpSection() {
+        dashboardPage.clickSupportButton();
+    }
+
+    @When("The user clicks on LPG FAQ tile")
+    public void theUserClicksOnLPGFAQTile() {
+        dashboardPage.clickLpgTile();
+        dashboardPage.verifyLpgFaqPage();
+    }
+
+    @When("The user navigates back to Support page")
+    public void theUserNavigatesBackToSupportPage() {
+        dashboardPage.navigateBack();
+    }
+
+    @When("The user scrolls to the Quick Help section")
+    public void theUserScrollsToTheQuickHelpSection() {
+        dashboardPage.scrollToQuickHelp();
+    }
+
+    @Then("The Quick Help section should be visible and accessible")
+    public void theQuickHelpSectionShouldBeVisibleAndAccessible() {
+        dashboardPage.verifyQuickHelpSection();
+    }
+
+    @Given("The user scrolls to MAK Lubricants section")
+    public void theUserScrollsToMAKLubricantsSection(){
+        dashboardPage.clickMAKLubricantsTile();
+    }
+
+    @And("The user clicks View All MAK Products")
+    public void theUserClicksViewAllMAKProducts(){
+        dashboardPage.clickViewAllMAKProducts();
+    }
+
+    @Then("The user verifies MAK Products")
+    public void theUserVerifiesMAKProducts(){
+        dashboardPage.verifyMAKProducts();
     }
 }

@@ -1,6 +1,8 @@
 @rolocator
 Feature: Services Nearby and Retail Outlet Locator
 
+  Background:
+    Given The user logs in to the app
 #  @servicesNearby
 #  Scenario: Verify Services Nearby options visibility
 #    Given The user is on the Main Dashboard
@@ -181,40 +183,121 @@ Feature: Services Nearby and Retail Outlet Locator
 #    And The user selects the "Sewri, Mumbai, Maharashtra, India" suggestion
 #    Then The retailer subtitle should be displayed
 #    And The retailer list should be displayed
+#
+#
+#  @noInternet
+#  Scenario: Verify offline popup in RO Locator
+#    Given The user is on the Main Dashboard
+#    When The user opens Services Nearby
+#    Then The offline popup should be displayed
+#
+#  @locateNowTabNavigation
+#  Scenario: Verify navigation between RO Locator categories
+#    Given The user is on the Main Dashboard
+#    When The user opens Services Nearby
+#    And The user dismisses the Services Nearby overlay
+#    And The user selects the "MAK Garage" category
+#    Then The RO Locator category title should be "Nearby Mak Garage"
+#    And The user dismisses the Services Nearby overlay
+#    And The user selects the "Retail Outlet" category
+#    Then The RO Locator category title should be "Nearby Retail Outlets"
+#    When The user dismisses the Services Nearby overlay
+#    And The user selects the "MAK Garage" category
+#    Then The RO Locator category title should be "Nearby Mak Garage"
+#    When The user dismisses the Services Nearby overlay
+#    And The user selects the "Bharatgas Distributor" category
+#    Then The RO Locator category title should be "Bharatgas Services"
+#    When The user dismisses the Services Nearby overlay
+#    And The user selects the "Retailer" category
+#    Then The RO Locator category title should be "Nearby Retailers"
+#
+#
+#  @currentLocation
+#  Scenario: Verify current location action in RO Locator
+#    Given The user is on the Main Dashboard
+#    When The user opens Services Nearby
+#    And The user dismisses the Services Nearby overlay
+#    And The user searches for "Sewri"
+#    And The user taps the current location button
+#    Then The RO Locator search field should be displayed
 
+#  @alone
+#  Scenario: Verify On clicking RO Locator button, a signup popup should be visible
+#    When The user clicks on RO Locator
+#    Then The signup popup is displayed
 
-  @noInternet
-  Scenario: Verify offline popup in RO Locator
-    Given The user is on the Main Dashboard
-    When The user opens Services Nearby
-    Then The offline popup should be displayed
+#  Scenario: Verify user can open Retailer Locator screen
+#    When The user ensures a location is set
+#    When The user clicks on Locate Now
+#    And The user selects Retailer filter
+#    And The user searches for BPCL Complex
+#    And The user selects the first location suggestion
+#    Then Nearby Retailers should be displayed
+#
+#  Scenario: Verify user can open Retail Outlet Locator screen
+#    When The user ensures a location is set
+#    When The user clicks on Locate Now
+#    Then Nearby Retail Outlet should be displayed
+#
+#  Scenario: Verify allow location permission flow
+#    Given Location permission is allowed
+#    When The user clicks on Locate Now
+#    And The user selects MAK Garage filter
+#    Then Nearby MAK Garages should be displayed
+#    When The user selects Retailer filter
+#    Then Nearby Retailers should be displayed
+#
+#  Scenario: Verify deny location permission flow
+#    Given Location permission is not granted
+#    When The user clicks on Locate Now
+#    And The user denies location permission
+#    Then Manual location search should be displayed
+#    And The user searches for Nashik
+#
+#  Scenario: Verify manual location selection using location or pincode
+#    Given Location permission is not granted
+#    When The user clicks on Locate Now
+#    And The user denies location permission
+#    And The user selects MAK Garage filter
+#    And The user searches for Nashik
+#    And The user selects the first location suggestion
+#    Then Nearby MAK Garages should be displayed
+#    When The user selects Retailer filter
+#    Then Nearby Retailers should be displayed
 
-  @locateNowTabNavigation
-  Scenario: Verify navigation between RO Locator categories
-    Given The user is on the Main Dashboard
-    When The user opens Services Nearby
-    And The user dismisses the Services Nearby overlay
-    And The user selects the "MAK Garage" category
-    Then The RO Locator category title should be "Nearby Mak Garage"
-    And The user dismisses the Services Nearby overlay
-    And The user selects the "Retail Outlet" category
-    Then The RO Locator category title should be "Nearby Retail Outlets"
-    When The user dismisses the Services Nearby overlay
-    And The user selects the "MAK Garage" category
-    Then The RO Locator category title should be "Nearby Mak Garage"
-    When The user dismisses the Services Nearby overlay
-    And The user selects the "Bharatgas Distributor" category
-    Then The RO Locator category title should be "Bharatgas Services"
-    When The user dismisses the Services Nearby overlay
-    And The user selects the "Retailer" category
-    Then The RO Locator category title should be "Nearby Retailers"
+#  @location
+#  Scenario: Current Location Detection
+#    When The user clicks on Locate Now
+#    When The user enables the GPS
+#    Then The user is able to see their current location
+#
+#  @location2
+#  Scenario: Search Location and verify outlets
+#    When The user clicks on Locate Now
+#    When The user clears the search box
+#    Then The user enters the address
+#    Then The user clicks MAK Garages and verifies outlets
+#    And The user clicks retailers and verifies outlets
+#
+#  @location3
+#  Scenario: Search the location and verify the suggestions
+#    When The user clicks on Locate Now
+#    When The user clears the search box
+#    Then The user verifies the suggestion dropdown
+#
+#  @location4
+#  Scenario: Verify MAK Garage page
+#    When The user clicks on Locate Now
+#    When The user clears the search box
+#    Then The user enters the address
+#    Then The user switches to MAK Garage
+#    And The user verifies the MAK Garage page
 
-
-  @currentLocation
-  Scenario: Verify current location action in RO Locator
-    Given The user is on the Main Dashboard
-    When The user opens Services Nearby
-    And The user dismisses the Services Nearby overlay
+  @retailerActions
+  Scenario: Verify Call, Share and Directions actions
+    Given The user opens the Locate Now page
+    When The user clicks on MAK Garage
     And The user searches for "Sewri"
-    And The user taps the current location button
-    Then The RO Locator search field should be displayed
+    And The user verifies Call, Share and Directions actions
+    Then Dialer, Share Sheet and Maps application should open successfully
+

@@ -4,7 +4,9 @@ package com.bpcl.automation.pages;
 import com.bpcl.automation.driver.DriverManager;
 import com.bpcl.automation.pages.locators.DashboardLocator;
 
+import io.appium.java_client.AppiumBy;
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Rectangle;
 import org.openqa.selenium.WebElement;
@@ -504,4 +506,267 @@ public class DashboardPage {
                 )
         ).click();
     }
+
+    public void verifyTermsAndConditions(){
+        WebElement supportButton = DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(DashboardLocator.supportBtn));
+        supportButton.click();
+    }
+
+    public void clickTermsAndConditions(){
+        WebElement scrollFeature = DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(DashboardLocator.scrollFeature));
+        scrollFeature.click();
+    }
+
+    public void verifyTAndC(){
+        WebElement verifyTAndC = DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(DashboardLocator.termsAndCondPage));
+        assertTrue(verifyTAndC.isDisplayed());
+    }
+
+
+    public void clickPrivacyPolicy() {
+        WebElement privacyPolicy = DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(DashboardLocator.privacyPolicy));
+        privacyPolicy.click();
+    }
+
+    public void verifyPrivacyPolicyPage() {
+        WebElement privacyPolicyPage = DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(DashboardLocator.privacyPolicyPage));
+        assertTrue(privacyPolicyPage.isDisplayed());
+    }
+
+    public void clickRaiseButton(){
+        WebElement raiseButton =DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(DashboardLocator.raiseBtn));
+        raiseButton.click();
+    }
+
+    public void verifyRaiseTicket() {
+        boolean isInvisible = DriverManager.getWait().until(
+                ExpectedConditions.invisibilityOfElementLocated(DashboardLocator.raiseBtn));
+
+        assertTrue(isInvisible);
+    }
+
+    public void clickChatWithUrjaButton() {
+        WebElement urjaBtn = DriverManager.getWait()
+                .until(ExpectedConditions.presenceOfElementLocated(DashboardLocator.chatWithUrjaBtn));
+
+        urjaBtn.click();
+    }
+
+
+    public void verifyChatWithUrjaPage() {
+
+        boolean isInvisible = DriverManager.getWait().until(
+                ExpectedConditions.invisibilityOfElementLocated(
+                        DashboardLocator.chatWithUrjaBtn));
+
+        assertTrue(isInvisible);
+    }
+
+    public void clickMakFaq() {
+        DriverManager.getWait()
+                .until(ExpectedConditions.presenceOfElementLocated(
+                        DashboardLocator.makFaqBtn))
+                .click();
+    }
+
+    public void clickFaqQuestion() {
+        DriverManager.getWait()
+                .until(ExpectedConditions.presenceOfElementLocated(
+                        DashboardLocator.faqQuestion))
+                .click();
+    }
+
+    public void verifyFaqAnswer() {
+
+        WebElement answer = DriverManager.getWait()
+                .until(ExpectedConditions.visibilityOfElementLocated(
+                        DashboardLocator.faqAnswer));
+
+        assertTrue(answer.isDisplayed());
+    }
+
+    public void enterKeyword(String keyword) {
+        WebElement searchBar = DriverManager.getWait()
+                .until(ExpectedConditions.presenceOfElementLocated(
+                        DashboardLocator.searchBar));
+
+        searchBar.sendKeys(keyword);
+    }
+
+    public void verifyLpgSearchResult() {
+        WebElement resultText = DriverManager.getWait()
+                .until(ExpectedConditions.visibilityOfElementLocated(
+                        DashboardLocator.lpgResult));
+
+        assertTrue(
+                resultText.getText().contains("LPG"),
+                "FAQ search results are not displayed for LPG keyword"
+        );
+    }
+
+
+
+    public void clickBeCafeFaq() {
+
+        DriverManager.getWait()
+                .until(ExpectedConditions.presenceOfElementLocated(
+                        DashboardLocator.beCafeFaqBtn))
+                .click();
+    }
+
+    public void verifyBeCafeFaqPage() {
+
+        WebElement pageHeader = DriverManager.getWait()
+                .until(ExpectedConditions.visibilityOfElementLocated(
+                        DashboardLocator.beCafeFaqPage));
+
+        assertTrue(pageHeader.isDisplayed());
+    }
+
+    public void verifyAllTilesNavigation() {
+
+        clickAndVerify(
+                DashboardLocator.lpgTile,
+                DashboardLocator.lpgPage);
+
+        clickAndVerify(
+                DashboardLocator.pngTile,
+                DashboardLocator.pngPage);
+
+        clickAndVerify(
+                DashboardLocator.cngTile,
+                DashboardLocator.cngPage);
+
+        clickAndVerify(
+                DashboardLocator.mechanicTile,
+                DashboardLocator.mechanicPage);
+
+        clickAndVerify(
+                DashboardLocator.vehicleOwnerTile,
+                DashboardLocator.vehicleOwnerPage);
+
+        clickAndVerify(
+                DashboardLocator.beCafeTile,
+                DashboardLocator.beCafePage);
+
+        clickAndVerify(
+                DashboardLocator.ufillTile,
+                DashboardLocator.ufillPage);
+
+        clickAndVerify(
+                DashboardLocator.smartDriveTile,
+                DashboardLocator.smartDrivePage);
+
+        clickAndVerify(
+                DashboardLocator.evTile,
+                DashboardLocator.evPage);
+    }
+
+    private void clickAndVerify(By tile, By page) {
+
+        DriverManager.getWait()
+                .until(ExpectedConditions.presenceOfElementLocated(tile))
+                .click();
+
+        WebElement pageHeader = DriverManager.getWait()
+                .until(ExpectedConditions.visibilityOfElementLocated(page));
+
+        assertTrue(pageHeader.isDisplayed());
+
+        DriverManager.getDriver().navigate().back();
+    }
+
+
+    public void verifyAllQuickHelpCategories() {
+
+        clickAndVerify(
+                DashboardLocator.bookLpgRefill,
+                DashboardLocator.bookLpgRefillPage);
+
+        clickAndVerify(
+                DashboardLocator.trackLpgDelivery,
+                DashboardLocator.trackLpgDeliveryPage);
+
+        clickAndVerify(
+                DashboardLocator.getPaymentSupport,
+                DashboardLocator.getPaymentSupportPage);
+
+        clickAndVerify(
+                DashboardLocator.raiseComplaint,
+                DashboardLocator.raiseComplaintPage);
+
+        clickAndVerify(
+                DashboardLocator.getAccountSupport,
+                DashboardLocator.getAccountSupportPage);
+
+        clickAndVerify(
+                DashboardLocator.viewLoyaltyPoints,
+                DashboardLocator.viewLoyaltyPointsPage);
+    }
+
+    public void scrollToQuickHelp() {
+
+        DriverManager.getDriver().findElement(
+                AppiumBy.androidUIAutomator(
+                        "new UiScrollable(new UiSelector().scrollable(true))"
+                                + ".scrollIntoView(new UiSelector().resourceId(\"com.acn.bootstrap:id/rvQuickHelpSection\"))"
+                )
+        );
+    }
+
+    public void clickSupportButton() {
+
+        DriverManager.getWait()
+                .until(ExpectedConditions.presenceOfElementLocated(
+                        DashboardLocator.supportBtn))
+                .click();
+    }
+
+    public void clickLpgTile() {
+
+        DriverManager.getWait()
+                .until(ExpectedConditions.presenceOfElementLocated(
+                        DashboardLocator.lpgTile))
+                .click();
+    }
+
+    public void verifyLpgFaqPage() {
+
+        WebElement pageHeader = DriverManager.getWait()
+                .until(ExpectedConditions.visibilityOfElementLocated(
+                        DashboardLocator.lpgFaqPage));
+
+        assertTrue(pageHeader.isDisplayed());
+    }
+
+    public void navigateBack() {
+
+        DriverManager.getDriver().navigate().back();
+    }
+
+    public void verifyQuickHelpSection() {
+
+        WebElement quickHelpSection = DriverManager.getWait()
+                .until(ExpectedConditions.visibilityOfElementLocated(
+                        DashboardLocator.quickHelpSection));
+
+        assertTrue(quickHelpSection.isDisplayed());
+    }
+
+    public void clickMAKLubricantsTile(){
+        WebElement scrollToMAKLubricants = DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(DashboardLocator.MAKLubricantsTile));
+        scrollToMAKLubricants.click();
+    }
+
+    public void clickViewAllMAKProducts(){
+        WebElement clickViewAllMAKProducts = DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(DashboardLocator.viewAllMAKLubricantProducts));
+        clickViewAllMAKProducts.click();
+    }
+
+    public void verifyMAKProducts(){
+        WebElement verifyMAKProducts = DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(DashboardLocator.verifyMAKLubricantProducts));
+        assertTrue(verifyMAKProducts.isDisplayed());
+    }
+
+
 }

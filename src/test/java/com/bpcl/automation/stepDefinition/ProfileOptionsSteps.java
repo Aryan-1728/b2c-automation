@@ -80,4 +80,28 @@ public class ProfileOptionsSteps {
     public void theSignInScreenShouldBeDisplayed() {
         profileOptionsPage.verifySignInScreen();
     }
+
+    @Given("The user clicks on Profile")
+    public void theUserClicksOnProfile() {
+        profileOptionsPage.clickProfile();
+    }
+
+    @When("The user clicks on Delete Account")
+    public void theUserClicksOnDeleteAccount() {
+        profileOptionsPage.clickDeleteAccount();
+    }
+
+    @Then("The delete account support popup is displayed")
+    public void theDeleteAccountSupportPopupIsDisplayed() {
+        profileOptionsPage.verifyDeleteAccountPopup();
+    }
+
+    @When("The user clicks on Go To Support button")
+    public void theUserClicksOnGoToSupportButton() {
+        profileOptionsPage.clickGoToSupport();
+    }
+    @Then("The user is redirected to Support FAQ page")
+    public void theUserIsRedirectedToSupportFAQPage() {
+        profileOptionsPage.verifySupportFaqPage();
+    }
 }

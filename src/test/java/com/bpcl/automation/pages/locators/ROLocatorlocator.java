@@ -178,4 +178,62 @@ public final class ROLocatorlocator {
     public static final By SEARCH_BOX =
             AppiumBy.id("com.acn.bootstrap:id/etSearch");
 
+    public static final By signInButton = AppiumBy.xpath("//android.widget.TextView[@content-desc='Button, Sign In']");
+    public static final By cityName = AppiumBy.id("com.acn.bootstrap:id/city_name");
+    public static final By gpsPopupButton = AppiumBy.id("android:id/button1");
+    public static final By permissionMessage = AppiumBy.id("com.android.permissioncontroller:id/permission_message");
+    public static final By allowOneTimePermission = AppiumBy.id("com.android.permissioncontroller:id/permission_allow_one_time_button");
+
+    public static final By roLocatorBtn = AppiumBy.xpath("//android.widget.FrameLayout[@content-desc='Button, Locate Now, List item 4 of 6']/androidx.cardview.widget.CardView[@resource-id='com.acn.bootstrap:id/card_service']/android.view.ViewGroup[@resource-id='com.acn.bootstrap:id/service_content']");
+    public static final By signUpPopup = AppiumBy.xpath("//android.widget.TextView[@content-desc='Sign Up Heading']");
+
+    public static final By locateNowButton = AppiumBy.xpath("//android.widget.TextView[@resource-id=\"com.acn.bootstrap:id/item_title\" and @text=\"Locate Now\"]");
+    public static final By touchOutside = AppiumBy.xpath("//android.view.View[@resource-id='com.acn.bootstrap:id/touch_outside']");
+    public static final By retailerFilter = AppiumBy.xpath("//android.widget.TextView[@resource-id='com.acn.bootstrap:id/tv_filter' and @text='Retailer']");
+    public static final By searchBox = AppiumBy.xpath("//android.widget.EditText[@resource-id='com.acn.bootstrap:id/etSearch']");
+    public static final By firstLocationSuggestion = AppiumBy.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id='com.acn.bootstrap:id/rvPlaceSuggestion']/android.view.ViewGroup[1]");
+    public static final By retailerResult = AppiumBy.xpath("//android.widget.TextView[@resource-id=\"com.acn.bootstrap:id/tvTitle\"]");
+
+    public static final By assertRetailOutlets = AppiumBy.xpath("//android.widget.TextView[@resource-id=\"com.acn.bootstrap:id/tvTitle\"]");
+
+    public static final By makGarageFilter = AppiumBy.xpath("//android.widget.TextView[@resource-id='com.acn.bootstrap:id/tv_filter' and @text='MAK Garage']");
+    public static final By makGarageResult = AppiumBy.xpath("//android.widget.TextView[@resource-id=\"com.acn.bootstrap:id/tvTitle\"]");
+
+    public static final By denyLocationPermission = AppiumBy.xpath("//android.widget.Button[@resource-id='android:id/button2']");
+    public static final By locationMap = AppiumBy.xpath("//android.widget.FrameLayout[@resource-id='com.acn.bootstrap:id/mapDistributorLocator']/android.widget.FrameLayout/android.widget.RelativeLayout[2]");
+    public static final By enableGpsBtn = AppiumBy.xpath("//android.widget.Button[@resource-id=\"android:id/button1\"]");
+    public static final By verifyYouAreHere = AppiumBy.xpath("//android.view.View[@content-desc=\"You are here\"]");
+    public static final By clickOutside = AppiumBy.xpath("//android.view.View[@resource-id=\"com.acn.bootstrap:id/touch_outside\"]");
+    public static final By sewriLoc = AppiumBy.xpath("//android.widget.TextView[@resource-id=\"com.acn.bootstrap:id/tvPlace\" and @text=\"Sewri, Mumbai, Maharashtra, India\"]");
+    public static final By MAKGarages = AppiumBy.xpath("//android.widget.TextView[@resource-id=\"com.acn.bootstrap:id/tv_filter\" and @text=\"MAK Garage\"]");
+    public static final By verifyMAKGarages = AppiumBy.xpath("//android.widget.TextView[@resource-id=\"com.acn.bootstrap:id/tvSubTitle\"]");
+    public static final By retailers = AppiumBy.xpath("//android.widget.TextView[@resource-id=\"com.acn.bootstrap:id/tv_filter\" and @text=\"Retailer\"]");
+    public static final By verifyRetailers = AppiumBy.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.acn.bootstrap:id/rvRetailers\"]/android.widget.FrameLayout[1]/android.view.ViewGroup");
+    public static final By mic = AppiumBy.xpath("//android.widget.ImageView[@resource-id=\"com.acn.bootstrap:id/ivMic\"]");
+    public static final By bpclLoc = AppiumBy.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id='com.acn.bootstrap:id/rvPlaceSuggestion']/android.view.ViewGroup[1]");
+    public static final By verifyRetailOutlets = AppiumBy.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.acn.bootstrap:id/rvFuelStation\"]/android.widget.FrameLayout/android.view.ViewGroup");
+    public static final By verifyLocSuggestionDropdown = AppiumBy.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.acn.bootstrap:id/rvPlaceSuggestion\"]");
+    public static final By totalMAKGaragePins = AppiumBy.xpath("//android.view.View[@content-desc=\"Map Marker\"]");
+    public static final By MAKGarage1 = AppiumBy.xpath("//android.view.View[@content-desc=\"Das kumar\"]");
+    public static final By MAKGarage2 = AppiumBy.xpath("//android.view.View[@content-desc=\"EnB Test\"]");
+    public static final By totalRetailerPins = AppiumBy.xpath("//android.view.View[@content-desc=\"Map Marker\"]");
+    public static final By retailer1 = AppiumBy.xpath("//android.view.View[@content-desc=\"test xhandani\"]");
+    public static final By retailer2 = AppiumBy.xpath("//android.view.View[@content-desc=\"Alp segre\"]");
+    public static final By MAKGaragePage = AppiumBy.xpath("//android.widget.TextView[@resource-id=\"com.acn.bootstrap:id/tvTitle\" and @text=\"Das kumar\"]");
+    public static final By mapArea =
+            AppiumBy.xpath("//android.view.View[@resource-id=\"com.acn.bootstrap:id/touch_outside\"]");
+    public static final By makGarageBtn =
+            AppiumBy.xpath("//android.widget.TextView[@resource-id=\"com.acn.bootstrap:id/tv_filter\" and @text=\"MAK Garage\"]");
+    public static final By nearbyMakGarage =
+            AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"com.acn.bootstrap:id/design_bottom_sheet\"]/android.view.ViewGroup/android.widget.LinearLayout");
+    public static final By callBtn =
+            AppiumBy.xpath("//android.widget.RelativeLayout[@resource-id=\"com.acn.bootstrap:id/rlBtnCallNow\"]");
+    public static final By shareBtn =
+            AppiumBy.xpath("//android.widget.RelativeLayout[@resource-id=\"com.acn.bootstrap:id/rlBtnShare\"]");
+    public static final By directionBtn =
+            AppiumBy.xpath("//android.widget.RelativeLayout[@resource-id=\"com.acn.bootstrap:id/rlBtnDirection\"]");
+    public static final By shareSheet =
+            AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content_preview_container\"]/android.widget.LinearLayout/android.widget.LinearLayout");
+    public static final By mapsPage =
+            AppiumBy.xpath("//android.view.View[@resource-id=\"com.acn.bootstrap:id/touch_outside\"]");
 }

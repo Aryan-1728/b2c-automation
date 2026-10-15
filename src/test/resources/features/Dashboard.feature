@@ -1,6 +1,9 @@
 @dashboard
 Feature: Dashboard and Language Preference
 
+  Background:
+    Given The user logs in to the app
+
 #  @dashboardComponents
 #  Scenario: Verify SmartDrive, Lubes, LPG Tiles, Banners and Footer
 #    Given The user is on the Main Dashboard
@@ -33,15 +36,15 @@ Feature: Dashboard and Language Preference
 #    Then The location selection should be initiated
 #    And The user handles the optional GPS and location permission popups
 #    Then The selected location should be updated
-
+#
 #  @signUpPopup
 #  Scenario: Verify Sign Up popup from Dashboard
 #    Given The user is on the Main Dashboard
 #    When The user taps the Locate Now option on Dashboard
 #    Then The Sign Up popup should be displayed
-
-
-
+#
+#
+#
 #  @rewardsFooter
 #  Scenario: Verify Rewards footer and Register Now
 #    Given The user is on the Main Dashboard
@@ -96,19 +99,93 @@ Feature: Dashboard and Language Preference
 #    When The user taps the Support footer
 #    Then The Support and FAQ page should be displayed
 #    And The Support and FAQ elements should be displayed
+#
+#  @helplineCTA
+#  Scenario: Verify Helpline CTA
+#    Given The user is on the Main Dashboard
+#    When The user taps the Support footer
+#    Then The Support and FAQ page should be displayed
+#    When The user taps the Helpline CTA
+#
+#  @emailUsCTA
+#  Scenario: Verify Email Us CTA
+#    Given The user is on the Main Dashboard
+#    When The user taps the Support footer
+#    Then The Support and FAQ page should be displayed
+#    When The user taps the Email Us CTA
+#
+#
+#  Scenario: Verify Terms And Conditions navigation
+#    Given The user clicks on support button
+#    Then The user clicks on Terms And Conditions
+#    Then The user is able to see the page
+#
+#  Scenario: Verify Privacy Policy navigation
+#    Given The user clicks on support button
+#    Then The user clicks on Privacy Policy
+#    Then The user is able to see the Privacy Policy page
 
-  @helplineCTA
-  Scenario: Verify Helpline CTA
-    Given The user is on the Main Dashboard
-    When The user taps the Support footer
-    Then The Support and FAQ page should be displayed
-    When The user taps the Helpline CTA
+  @support
+  Scenario: Verify Raise Ticket option is clickable
+    Given User opens Support & FAQ page
+    Then User clicks on Raise Ticket
+    Then User should navigate to the Raise Ticket page
 
-  @emailUsCTA
-  Scenario: Verify Email Us CTA
-    Given The user is on the Main Dashboard
-    When The user taps the Support footer
-    Then The Support and FAQ page should be displayed
-    When The user taps the Email Us CTA
+  @chatWithUrja
+  Scenario: Verify Chat With Urja functionality
+    Given The user opens the Support page
+    When The user clicks on Chat With Urja
+    Then The user should navigate to the Chat With Urja page
+
+  @supportSearch
+  Scenario: Verify FAQ search results for LPG keyword
+    Given The user opens the Support page for FAQ Search
+    When The user enters "lpg" in the search bar
+    Then Relevant FAQ search results should be displayed
+
+  Scenario: Verify FAQ answer expands and collapses successfully
+    Given The user opens the Support page for FAQ Accordion
+    When The user clicks on MAK FAQ
+    And The user clicks on a FAQ question
+    Then The FAQ answer should be displayed
+
+  @faqCategoryNavigation
+  Scenario: Verify FAQ category navigation
+    Given The user opens the Support page for FAQ Category Navigation
+    When The user clicks on BeCafe FAQ category
+    Then The BeCafe FAQ page should be displayed
+
+  @faqTiles
+  Scenario: Verify each FAQ Tile navigation functionality
+    Given The user opens the Support page for FAQ Tiles
+    When The user clicks on each FAQ tile one by one
+    Then The respective FAQ pages should open successfully
+
+  @quickHelpSection
+  Scenario: Verify Quick Help section is displayed correctly
+    Given The user opens the Support page for Quick Help Section
+    When The user clicks on LPG FAQ tile
+    And The user navigates back to Support page
+    And The user scrolls to the Quick Help section
+    Then The Quick Help section should be visible and accessible
+
+  @quickHelpCategories
+  Scenario: Verify quick help  category tabs display relevant FAQs
+    Given The user opens the Support page for Quick Help Categories
+    When The user clicks on each Quick Help category
+    Then Relevant FAQs should be displayed for each selected category
+
+  @makLubricants
+  Scenario: Verify Product Detail Page from MAK Lubricants section
+    Given The user scrolls to MAK Lubricants section
+    And The user clicks View All MAK Products
+    Then The user verifies MAK Products
+
+
+
+
+
+
+
 
 

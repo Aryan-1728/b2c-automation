@@ -1,6 +1,8 @@
 package com.bpcl.automation.stepDefinition;
 
 import com.bpcl.automation.pages.ROLocatorPage;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 
@@ -266,5 +268,161 @@ public class ROLocatorSteps {
     @Then("The RO Locator search field should be displayed")
     public void theRoLocatorSearchFieldShouldBeDisplayed() {
         locatorPage.verifyRoLocatorSearchFieldDisplayed();
+    }
+
+    @When("The user clicks on RO Locator")
+    public void theUserClicksOnRoLocator() {
+        locatorPage.clickRoLocator();
+    }
+
+    @Then("The signup popup is displayed")
+    public void theSignupPopupIsDisplayed() {
+        locatorPage.verifySignUpPopup();
+    }
+
+    @When("The user clicks on Locate Now")
+    public void theUserClicksOnLocateNow() {
+        locatorPage.clickLocateNow();
+    }
+
+    @When("The user selects Retailer filter")
+    public void theUserSelectsRetailerFilter() {
+        locatorPage.selectRetailerFilter();
+    }
+
+    @When("The user searches for BPCL Complex")
+    public void theUserSearchesForBPCLComplex() {
+        locatorPage.searchBPCLComplex();
+    }
+
+    @When("The user selects the first location suggestion")
+    public void theUserSelectsTheFirstLocationSuggestion() {
+        locatorPage.selectLocation();
+    }
+
+    @Then("Nearby Retailers should be displayed")
+    public void NearbyRetailersShouldBeDisplayed() {
+        locatorPage.verifyRetailerLocatorScreen();
+    }
+
+    @Then("Nearby Retail Outlet should be displayed")
+    public void nearbyRetailOutletShouldBeDisplayed() {
+        locatorPage.verifyRetailOutletScreen();
+    }
+
+    @Given("Location permission is allowed")
+    public void locationPermissionIsAllowed() throws InterruptedException {
+        locatorPage.verifySetLocation();
+    }
+
+    @When("The user selects MAK Garage filter")
+    public void theUserSelectsMAKGarageFilter() {
+        locatorPage.selectMAKGarageFilter();
+    }
+
+    @Then("Nearby MAK Garages should be displayed")
+    public void nearbyMAKGaragesShouldBeDisplayed() {
+        locatorPage.verifyNearbyMAKGarages();
+    }
+
+    @Given("Location permission is not granted")
+    public void locationPermissionIsNotGranted() {
+        // No action required
+        // Test assumes permission popup will appear
+    }
+
+    @When("The user denies location permission")
+    public void theUserDeniesLocationPermission() {
+        locatorPage.denyLocationPermission();
+    }
+
+    @Then("Manual location search should be displayed")
+    public void manualLocationSearchShouldBeDisplayed() {
+        locatorPage.verifyManualLocationSearchScreen();
+    }
+
+    @Then("The user searches for Nashik")
+    public void theUserSearchesForNashik() {
+        locatorPage.searchNashik();
+    }
+
+    @And("The user clicks on the locateNow button")
+    public void theUserClicksOnTheLocateNowButton(){
+        locatorPage.clickLocateNowBtn();
+    }
+
+    @When("The user enables the GPS")
+    public void theUserEnableTheGPS(){
+        locatorPage.enableGps();
+    }
+
+    @Then("The user is able to see their current location")
+    public void theUserIsAbleToSeeTheirCurrentLocation() throws InterruptedException {
+        locatorPage.verifyCurrentLocation();
+    }
+
+    @Given("The user clears the search box")
+    public void theUserClearsTheSearchBox(){
+        locatorPage.clearSearchBox();
+    }
+
+    @Then("The user enters the address")
+    public void theUserEntersTheAddress(){
+        locatorPage.enterAddress();
+    }
+
+    @Then("The user clicks MAK Garages and verifies outlets")
+    public void theUserClicksMAKGaragesAndVerifiesOutlets() throws InterruptedException {
+        locatorPage.verifyMAKGarages();
+    }
+
+    @And("The user clicks retailers and verifies outlets")
+    public void theUserClicksRetailersAndVerifiesOutlets() throws InterruptedException {
+        locatorPage.verifyRetailers();
+    }
+
+    @Then("The user speaks and clicks the location")
+    public void theUserSpeaksAndClicksTheLocation() throws InterruptedException {
+        locatorPage.spokenLoc();
+    }
+
+    @And("The user verifies retail outlets")
+    public void theUserVerifiesRetailOutlets(){
+        locatorPage.verifyRetailOutlets();
+    }
+
+    @Then("The user verifies the suggestion dropdown")
+    public void theUserVerifiesTheSuggestionDropdown(){
+        locatorPage.verifyLocationSuggestionDropdown();
+    }
+
+    @Then("The user switches to MAK Garage")
+    public void theUserSwitchesToMAKGarage(){
+        locatorPage.clickMAKGarage();
+    }
+
+    @And("The user verifies the MAK Garage page")
+    public void theUserVerifiesTheMAKGaragePage(){
+        locatorPage.verifyMAKGaragePage();
+    }
+
+    @Given("The user opens the Locate Now page")
+    public void theUserOpensTheLocateNowPage() {
+        locatorPage.openLocateNowPage();
+    }
+
+    @When("The user clicks on MAK Garage")
+    public void theUserClicksOnMAKGarage() {
+        locatorPage.clickMakGarage();
+    }
+
+    @When("The user verifies Call, Share and Directions actions")
+    public void theUserVerifiesCallShareAndDirectionsActions() {
+        locatorPage.verifyAllActions();
+    }
+
+    @Then("Dialer, Share Sheet and Maps application should open successfully")
+    public void dialerShareSheetAndMapsApplicationShouldOpenSuccessfully() {
+
     }
 }

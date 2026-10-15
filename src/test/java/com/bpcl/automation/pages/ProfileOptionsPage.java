@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.junit.jupiter.api.Assertions;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class ProfileOptionsPage {
 
     // --------------------------------------------------
@@ -36,40 +38,7 @@ public class ProfileOptionsPage {
                         ProfileOptionsLocator.PROFILE))
                 .click();
     }
-
-    // --------------------------------------------------
-    // 3. Delete Account
-    // --------------------------------------------------
-
-    public void clickDeleteAccount() {
-        DriverManager.getWait()
-                .until(ExpectedConditions.elementToBeClickable(
-                        ProfileOptionsLocator.DELETE_ACCOUNT))
-                .click();
-    }
-
-    public void verifyDeleteAccountPopup() {
-        WebElement popup = DriverManager.getWait()
-                .until(ExpectedConditions.visibilityOfElementLocated(
-                        ProfileOptionsLocator.GO_TO_SUPPORT));
-
-        Assertions.assertTrue(
-                popup.isDisplayed(),
-                "Please raise a support ticket to delete your account."
-        );
-    }
-
-    public void clickGoToSupport() {
-        DriverManager.getWait()
-                .until(ExpectedConditions.elementToBeClickable(
-                        ProfileOptionsLocator.GO_TO_SUPPORT))
-                .click();
-    }
-
-    // --------------------------------------------------
-    // 4. Support
-    // --------------------------------------------------
-
+    
     public void clickSupport() {
         DriverManager.getWait()
                 .until(ExpectedConditions.elementToBeClickable(
@@ -82,7 +51,7 @@ public class ProfileOptionsPage {
                 .until(ExpectedConditions.visibilityOfElementLocated(
                         ProfileOptionsLocator.SUPPORT_SCREEN));
 
-        Assertions.assertTrue(
+        assertTrue(
                 supportScreen.isDisplayed(),
                 "Support and FAQ page should be displayed."
         );
@@ -104,7 +73,7 @@ public class ProfileOptionsPage {
                 .until(ExpectedConditions.visibilityOfElementLocated(
                         ProfileOptionsLocator.TERMS_SCREEN));
 
-        Assertions.assertTrue(
+        assertTrue(
                 termsScreen.isDisplayed(),
                 "Terms and Conditions page should be displayed."
         );
@@ -121,7 +90,7 @@ public class ProfileOptionsPage {
                 .stream()
                 .anyMatch(WebElement::isDisplayed);
 
-        Assertions.assertTrue(
+        assertTrue(
                 rateUsDisplayed,
                 "Rate Us option should be hidden."
         );
@@ -143,7 +112,7 @@ public class ProfileOptionsPage {
                 .until(ExpectedConditions.visibilityOfElementLocated(
                         ProfileOptionsLocator.LOGOUT_CONFIRMATION));
 
-        Assertions.assertTrue(
+        assertTrue(
                 confirmationPopup.isDisplayed(),
                 "Logout confirmation popup should be displayed."
         );
@@ -161,10 +130,38 @@ public class ProfileOptionsPage {
                 .until(ExpectedConditions.visibilityOfElementLocated(
                         ProfileOptionsLocator.SIGN_IN_BUTTON));
 
-        Assertions.assertTrue(
+        assertTrue(
                 signInButton.isDisplayed(),
                 "User should be redirected to the Sign In screen."
         );
+    }
+
+    public void clickProfile() {
+        WebElement profileBtn = DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(ProfileOptionsLocator.profileBtn));
+        profileBtn.click();
+    }
+
+    public void clickDeleteAccount() {
+        WebElement deleteAccount = DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(ProfileOptionsLocator.deleteAccountBtn));
+        deleteAccount.click();
+    }
+
+    public void verifyDeleteAccountPopup() {
+        WebElement popupMessage = DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(ProfileOptionsLocator.deleteAccountPopupMsg));
+        assertTrue(popupMessage.isDisplayed());
+
+        WebElement goToSupport = DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(ProfileOptionsLocator.goToSupportBtn));
+        assertTrue(goToSupport.isDisplayed());
+    }
+
+    public void clickGoToSupport() {
+        WebElement goToSupportBtn = DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(ProfileOptionsLocator.goToSupportBtn));
+        goToSupportBtn.click();
+    }
+
+    public void verifySupportFaqPage() {
+        WebElement supportFaqPage = DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(ProfileOptionsLocator.supportFaqPage));
+        assertTrue(supportFaqPage.isDisplayed());
     }
 }
 

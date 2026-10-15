@@ -1,4 +1,18 @@
-Feature: Non Logged In Users Links
+@quickofferings
+Feature: Quick Offerings
+
+  Scenario: Play Now link functionality
+    Given The user clicks the play now button
+    Then The user verifies the KBC page
+
+  Scenario: Smart Drive link functionality
+    Given The user clicks the smart drive button
+    Then The user verifies the smart drive page
+
+  Scenario: Locate Now link functionality
+    And The user swipes the links
+    Given The user clicks on Locate Now
+    Then The user verifies the services nearby page
 
   Scenario: Play Now link functionality
     Given The user clicks the play now button
@@ -13,7 +27,7 @@ Feature: Non Logged In Users Links
     Then The user verifies the u fill dashboard
 
   Scenario: Locate Now link functionality
-    Given The user clicks on the locateNow button
+    Given The user clicks on Locate Now
     Then The user verifies sign up page
 
   Scenario: Scan Now functionality
@@ -25,4 +39,3 @@ Feature: Non Logged In Users Links
     Given The user swipes the links
     And The user clicks register lpg button
     Then The user verifies the register lpg page
-
