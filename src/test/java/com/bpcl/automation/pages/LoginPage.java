@@ -1,3 +1,4 @@
+
 package com.bpcl.automation.pages;
 
 import com.bpcl.automation.driver.DriverManager;
@@ -7,20 +8,54 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Random;
 
 public class LoginPage {
+
+    // Array containing 10 test mobile numbers
+    private static final String[] MOBILE_NUMBERS = {
+            "7080118132",
+            "7080118133",
+            "7080118134",
+            "7080118135",
+            "7080118136",
+            "7080118137",
+            "7080118138",
+            "7080118139",
+            "7080118140",
+            "7080118141"
+    };
+
+    // Random number generator
+    private final Random random = new Random();
+
+    // Select a random mobile number from the array
+    private String getRandomMobileNumber() {
+        return MOBILE_NUMBERS[
+                random.nextInt(MOBILE_NUMBERS.length)
+                ];
+    }
 
     public void validLogin() {
 
         if (isAlreadyLoggedIn()) {
-            System.out.println("User is already logged in. Entering MPIN.");
+            System.out.println(
+                    "User is already logged in. Entering MPIN."
+            );
+
             enterExistingMpin();
+
         } else {
-            System.out.println("User is not logged in. Starting login flow.");
+            System.out.println(
+                    "User is not logged in. Starting login flow."
+            );
+
             performLogin();
         }
 
-        System.out.println("Authentication completed. Continuing with test case.");
+        System.out.println(
+                "Authentication completed. Continuing with test case."
+        );
     }
 
     // Check whether the user is already logged in
@@ -39,7 +74,7 @@ public class LoginPage {
             return false;
 
         } catch (TimeoutException e) {
-            // Sign In button did not appear within 3 seconds
+            // Sign In button did not appear within 10 seconds
             return true;
         }
     }
@@ -59,7 +94,9 @@ public class LoginPage {
                 )
         ).click();
 
-        System.out.println("Existing user authenticated using MPIN.");
+        System.out.println(
+                "Existing user authenticated using MPIN."
+        );
     }
 
     // New login: Complete the entire login flow
@@ -72,12 +109,19 @@ public class LoginPage {
                 )
         ).click();
 
+        // Select a random mobile number
+        String mobileNumber = getRandomMobileNumber();
+
+        System.out.println(
+                "Selected mobile number: " + mobileNumber
+        );
+
         // Enter mobile number
         DriverManager.getWait().until(
                 ExpectedConditions.visibilityOfElementLocated(
                         loginLocator.mobileNumber
                 )
-        ).sendKeys("7998956638");
+        ).sendKeys(mobileNumber);
 
         // Select Terms & Conditions
         DriverManager.getWait().until(
@@ -135,8 +179,11 @@ public class LoginPage {
                             loginLocator.dontAllowBtn
                     )
             ).click();
+
         } catch (TimeoutException e) {
-            System.out.println("Permission popup did not appear.");
+            System.out.println(
+                    "Permission popup did not appear."
+            );
         }
 
         System.out.println("New login flow completed.");

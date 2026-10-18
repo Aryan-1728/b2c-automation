@@ -20,20 +20,15 @@ public final class DashboardLocator {
             );
 
     public static final By MAK_LUBRICANTS =
-            AppiumBy.xpath(
-                    "(//android.widget.ImageView[@resource-id=\"com.acn.bootstrap:id/imageView\"])[3]"
-            );
+            AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true))" + ".scrollIntoView(new UiSelector().text(\"MAK Lubricants\"))");
 
     public static final By SMARTDRIVE =
-            AppiumBy.xpath(
-                    "(//android.widget.ImageView[@resource-id=\"com.acn.bootstrap:id/imageView\"])[6]"
-            );
-
+            AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true))" + ".scrollIntoView(new UiSelector().text(\"SmartDrive\"))");
 
 
     public static final By PROFILE =
             AppiumBy.xpath("//android.widget.FrameLayout[@content-desc=\"Profile\"]");
-
+    public static final By HINDI_PROFILE = AppiumBy.xpath("//android.widget.FrameLayout[@content-desc=\"प्रोफाइल\"]");
     public static final By LANGUAGE_PREFERENCE =
             AppiumBy.xpath("//android.view.ViewGroup[@resource-id=\"com.acn.bootstrap:id/clLanguagePreference\"]");
 
@@ -95,7 +90,7 @@ public final class DashboardLocator {
             AppiumBy.xpath("//android.widget.TextView[@content-desc='Support and FAQ']");
 
     public static final By PROFILE_USERNAME =
-            AppiumBy.id("//android.widget.TextView[@resource-id=\"com.acn.bootstrap:id/tvUserName\"]");
+            AppiumBy.xpath("//android.widget.TextView[@resource-id=\"com.acn.bootstrap:id/tvUserName\"]");
 
     public static final By MPIN_SETTINGS =
             AppiumBy.id("com.acn.bootstrap:id/clMpinSettings");
@@ -293,4 +288,5 @@ public final class DashboardLocator {
     public static final By MAKLubricantsTile = AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true))" + ".scrollIntoView(new UiSelector().text(\"MAK Lubricants\"))");
     public static final By viewAllMAKLubricantProducts = AppiumBy.xpath("//android.widget.TextView[@content-desc=\"View All Mak Products link\"]");
     public static final By verifyMAKLubricantProducts = AppiumBy.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.acn.bootstrap:id/rv_all_products\"]");
+    public static final By engLang = AppiumBy.xpath("//android.view.ViewGroup[@content-desc=\"English, not selected\"]");
 }

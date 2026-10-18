@@ -394,4 +394,14 @@ public class DashboardSteps {
     public void theUserVerifiesMAKProducts(){
         dashboardPage.verifyMAKProducts();
     }
+
+    @And("The user selects English language")
+    public void theUserSelectsEnglishLanguage(){
+        dashboardPage.verifyEnglishLanguage();
+    }
+
+    @Then("The user navigates to Hindi profile")
+    public void theUserNavigatesToHindiProfile(){
+        dashboardPage.clickHindiProfile();
+    }
 }

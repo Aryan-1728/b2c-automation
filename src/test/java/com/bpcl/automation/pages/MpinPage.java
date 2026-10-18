@@ -8,9 +8,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class MpinPage {
 
-    private static final String NEW_MPIN = "1234";
+    private static final String NEW_MPIN = "1111";
     private static final String INCORRECT_MPIN = "8431";
-    private static final String CORRECT_MPIN = "1234";
+    private static final String CORRECT_MPIN = "1111";
 
     public void enterNewMpin() {
         WebElement field = DriverManager.getWait()

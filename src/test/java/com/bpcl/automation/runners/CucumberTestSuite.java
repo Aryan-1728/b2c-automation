@@ -23,7 +23,7 @@ import static io.cucumber.junit.platform.engine.Constants.*;
 
 @ConfigurationParameter(
         key = FILTER_TAGS_PROPERTY_NAME,
-        value = "@makLubricants"
+        value = "@sprint4"
 )
 
 @ConfigurationParameter(

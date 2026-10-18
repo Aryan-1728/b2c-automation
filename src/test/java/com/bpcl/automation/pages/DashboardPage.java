@@ -51,8 +51,6 @@ public class DashboardPage {
     }
 
     public void scrollToMAKLubricants() {
-        swipeUp();
-
         DriverManager.getWait()
                 .until(ExpectedConditions.visibilityOfElementLocated(
                         DashboardLocator.MAK_LUBRICANTS));
@@ -69,8 +67,6 @@ public class DashboardPage {
     }
 
     public void scrollToSmartDrive() {
-        swipeUp();
-
         DriverManager.getWait()
                 .until(ExpectedConditions.visibilityOfElementLocated(
                         DashboardLocator.SMARTDRIVE));
@@ -768,5 +764,14 @@ public class DashboardPage {
         assertTrue(verifyMAKProducts.isDisplayed());
     }
 
+    public void verifyEnglishLanguage(){
+        WebElement verifyEngLang = DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(DashboardLocator.engLang));
+        verifyEngLang.click();
+    }
+
+    public void clickHindiProfile(){
+        WebElement verifyHindiProfile = DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(DashboardLocator.HINDI_PROFILE));
+        verifyHindiProfile.click();
+    }
 
 }

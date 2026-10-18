@@ -7,10 +7,13 @@ import com.bpcl.automation.pages.locators.ProfileOptionsLocator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.junit.jupiter.api.Assertions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ProfileOptionsPage {
+    private static final Logger log = LoggerFactory.getLogger(ProfileOptionsPage.class);
 
     // --------------------------------------------------
     // 1. Verify user is logged in
@@ -101,10 +104,10 @@ public class ProfileOptionsPage {
     // --------------------------------------------------
 
     public void clickLogout() {
-        DriverManager.getWait()
-                .until(ExpectedConditions.elementToBeClickable(
-                        ProfileOptionsLocator.LOGOUT))
-                .click();
+        WebElement logout = DriverManager.getWait()
+                .until(ExpectedConditions.visibilityOfElementLocated(
+                        ProfileOptionsLocator.LOGOUT));
+        logout.click();
     }
 
     public void verifyLogoutConfirmationPopup() {

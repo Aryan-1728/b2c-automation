@@ -1,3 +1,4 @@
+
 package com.bpcl.automation.pages;
 
 import com.bpcl.automation.driver.DriverManager;
@@ -10,23 +11,34 @@ import java.util.Random;
 
 public class SignInPage {
 
-    private String TEST_MOBILE_NUMBER;
+    private String TEST_MOBILE_NUMBER = "9394959697";
 
     private static final String INVALID_MOBILE_NUMBER = "1234567890";
     private static final String TEST_OTP = "123456";
 
+    // Array of 10 test mobile numbers
     private static final String[] MOBILE_NUMBERS = {
-            "9000003001",
-            "9000020002",
-            "9000003003",
-            "9000090004",
-            "8000040005",
-            "9007000006",
-            "9000005007",
-            "9000100008",
-            "9000006009",
-            "9000700010"
+            "8100003001",
+            "8200020002",
+            "8300003003",
+            "8400090004",
+            "6500040005",
+            "6607000006",
+            "6700005007",
+            "6900100008",
+            "6900006009",
+            "6600700010"
     };
+
+    // Random number generator
+    private final Random random = new Random();
+
+    // Select a random mobile number from the array
+    private String getRandomMobileNumber() {
+        return MOBILE_NUMBERS[
+                random.nextInt(MOBILE_NUMBERS.length)
+                ];
+    }
 
     public void clickSignUp() {
         DriverManager.getWait()
@@ -70,11 +82,13 @@ public class SignInPage {
     }
 
     public void enterValidMobileNumber() {
-        TEST_MOBILE_NUMBER = MOBILE_NUMBERS[
-                new Random().nextInt(MOBILE_NUMBERS.length)
-                ];
 
-        System.out.println("Selected mobile number: " + TEST_MOBILE_NUMBER);
+        // Select a random number
+        TEST_MOBILE_NUMBER = getRandomMobileNumber();
+
+        System.out.println(
+                "Selected mobile number: " + TEST_MOBILE_NUMBER
+        );
 
         WebElement mobileField = getMobileNumberField();
 
