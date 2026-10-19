@@ -44,6 +44,12 @@ Feature: Dashboard and Language Preference
 
   @signUpPopup @sprint2
   Scenario: Verify Sign Up popup from Dashboard
+    Given The user logs in to the app
+    When The user opens Profile
+    And The user clicks Logout
+    Then The logout confirmation popup should be displayed
+    When The user confirms Sign Out
+    Then The Sign In screen should be displayed
     Given The user is on the Main Dashboard
     When The user taps the Locate Now option on Dashboard
     Then The Sign Up popup should be displayed
@@ -109,6 +115,7 @@ Feature: Dashboard and Language Preference
 
   @supportFAQElements @sprint3
   Scenario: Verify all Support and FAQ page elements
+    Given The user logs in to the app
     Given The user is on the Main Dashboard
     When The user taps the Support footer
     Then The Support and FAQ page should be displayed
@@ -116,6 +123,7 @@ Feature: Dashboard and Language Preference
 
   @helplineCTA @sprint2
   Scenario: Verify Helpline CTA
+    Given The user logs in to the app
     Given The user is on the Main Dashboard
     When The user taps the Support footer
     Then The Support and FAQ page should be displayed
@@ -123,6 +131,7 @@ Feature: Dashboard and Language Preference
 
   @emailUsCTA @sprint2
   Scenario: Verify Email Us CTA
+    Given The user logs in to the app
     Given The user is on the Main Dashboard
     When The user taps the Support footer
     Then The Support and FAQ page should be displayed
@@ -130,36 +139,42 @@ Feature: Dashboard and Language Preference
 
   @sprint3
   Scenario: Verify Terms And Conditions navigation
+    Given The user logs in to the app
     Given The user clicks on support button
     Then The user clicks on Terms And Conditions
     Then The user is able to see the page
 
   @sprint3
   Scenario: Verify Privacy Policy navigation
+    Given The user logs in to the app
     Given The user clicks on support button
     Then The user clicks on Privacy Policy
     Then The user is able to see the Privacy Policy page
 
   @support @sprint3
   Scenario: Verify Raise Ticket option is clickable
+    Given The user logs in to the app
     Given User opens Support & FAQ page
     Then User clicks on Raise Ticket
     Then User should navigate to the Raise Ticket page
 
   @chatWithUrja @sprint3
   Scenario: Verify Chat With Urja functionality
+    Given The user logs in to the app
     Given The user opens the Support page
     When The user clicks on Chat With Urja
     Then The user should navigate to the Chat With Urja page
 
   @supportSearch @sprint3
   Scenario: Verify FAQ search results for LPG keyword
+    Given The user logs in to the app
     Given The user opens the Support page for FAQ Search
     When The user enters "lpg" in the search bar
     Then Relevant FAQ search results should be displayed
 
   @sprint3
   Scenario: Verify FAQ answer expands and collapses successfully
+    Given The user logs in to the app
     Given The user opens the Support page for FAQ Accordion
     When The user clicks on MAK FAQ
     And The user clicks on a FAQ question
@@ -167,18 +182,21 @@ Feature: Dashboard and Language Preference
 
   @faqCategoryNavigation @sprint3
   Scenario: Verify FAQ category navigation
+    Given The user logs in to the app
     Given The user opens the Support page for FAQ Category Navigation
     When The user clicks on BeCafe FAQ category
     Then The BeCafe FAQ page should be displayed
 
   @faqTiles @sprint3
   Scenario: Verify each FAQ Tile navigation functionality
+    Given The user logs in to the app
     Given The user opens the Support page for FAQ Tiles
     When The user clicks on each FAQ tile one by one
     Then The respective FAQ pages should open successfully
 
   @quickHelpSection @sprint3
   Scenario: Verify Quick Help section is displayed correctly
+    Given The user logs in to the app
     Given The user opens the Support page for Quick Help Section
     When The user clicks on LPG FAQ tile
     And The user navigates back to Support page
@@ -187,6 +205,7 @@ Feature: Dashboard and Language Preference
 
   @quickHelpCategories @sprint3
   Scenario: Verify quick help  category tabs display relevant FAQs
+    Given The user logs in to the app
     Given The user opens the Support page for Quick Help Categories
     When The user clicks on each Quick Help category
     Then Relevant FAQs should be displayed for each selected category

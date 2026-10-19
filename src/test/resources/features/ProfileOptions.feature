@@ -3,6 +3,7 @@ Feature: Profile Options
 
   @deleteAccount @sprint2
   Scenario: Verify Delete Account redirection to Support
+    Given The user logs in to the app
     Given The user is logged into the B2C app
     When The user opens Profile
     And The user clicks Delete Account
@@ -12,6 +13,7 @@ Feature: Profile Options
 
   @support @sprint2
   Scenario: Verify Support from Profile
+    Given The user logs in to the app
     Given The user is logged into the B2C app
     When The user opens Profile
     And The user clicks Support
@@ -19,6 +21,7 @@ Feature: Profile Options
 
   @termsAndConditions @sprint2
   Scenario: Verify Terms and Conditions
+    Given The user logs in to the app
     Given The user is logged into the B2C app
     When The user opens Profile
     And The user clicks Terms and Conditions
@@ -26,12 +29,14 @@ Feature: Profile Options
 
   @rateUs @sprint2
   Scenario: Verify Rate Us option is hidden
+    Given The user logs in to the app
     Given The user is logged into the B2C app
     When The user opens Profile
     Then The Rate Us option should be hidden
 
   @logout @sprint2
   Scenario: Verify Logout functionality
+    Given The user logs in to the app
     Given The user is logged into the B2C app
     When The user opens Profile
     And The user clicks Logout
@@ -41,12 +46,14 @@ Feature: Profile Options
 
   @sprint3
   Scenario: Verify Delete Account support redirection
+    Given The user logs in to the app
     Given The user clicks on Profile
     When The user clicks on Delete Account
     Then The delete account support popup is displayed
 
   @sprint3
   Scenario: Verify Go to Support button functionality
+    Given The user logs in to the app
     Given The user clicks on Profile
     When The user clicks on Delete Account
     And The user clicks on Go To Support button

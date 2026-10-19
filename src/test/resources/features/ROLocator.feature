@@ -52,6 +52,7 @@ Feature: Services Nearby and Retail Outlet Locator
 
   @voiceSearch @sprint3
   Scenario: Verify Retail Outlet locator using voice search
+    Given The user logs in to the app
     Given The user is on the Main Dashboard
     When The user ensures a location is set
     And The user opens Services Nearby
@@ -64,6 +65,7 @@ Feature: Services Nearby and Retail Outlet Locator
 
   @locationSuggestions @sprint2
   Scenario: Verify location suggestions using text search
+    Given The user logs in to the app
     Given The user is on the Main Dashboard
     When The user ensures a location is set
     And The user opens Services Nearby
@@ -73,6 +75,7 @@ Feature: Services Nearby and Retail Outlet Locator
 
   @mapListView @sprint2
   Scenario: Verify Retail Outlet list and map marker
+    Given The user logs in to the app
     Given The user is on the Main Dashboard
     When The user ensures a location is set
     And The user opens Services Nearby
@@ -86,6 +89,7 @@ Feature: Services Nearby and Retail Outlet Locator
 
   @noRetailOutlet @sprint2
   Scenario: Verify search when no Retail Outlet is found
+    Given The user logs in to the app
     Given The user is on the Main Dashboard
     When The user ensures a location is set
     And The user opens Services Nearby
@@ -96,6 +100,7 @@ Feature: Services Nearby and Retail Outlet Locator
 
   @filterFunctionality @sprint2
   Scenario: Verify Retail Outlet filters in list and map views
+    Given The user logs in to the app
     Given The user is on the Main Dashboard
     When The user ensures a location is set
     And The user opens Services Nearby
@@ -116,6 +121,7 @@ Feature: Services Nearby and Retail Outlet Locator
 
   @outletDetails @sprint2
   Scenario: Verify Retail Outlet detail page
+    Given The user logs in to the app
     Given The user is on the Main Dashboard
     When The user ensures a location is set
     And The user opens Services Nearby
@@ -128,6 +134,7 @@ Feature: Services Nearby and Retail Outlet Locator
 
   @directionsCTA @sprint2
   Scenario: Verify Retail Outlet detail page and return to list
+    Given The user logs in to the app
     Given The user is on the Main Dashboard
     When The user ensures a location is set
     And The user opens Services Nearby
@@ -141,6 +148,7 @@ Feature: Services Nearby and Retail Outlet Locator
 
   @clearAll @sprint2
   Scenario: Verify Clear All filters functionality
+    Given The user logs in to the app
     Given The user is on the Main Dashboard
     When The user ensures a location is set
     And The user opens Services Nearby
@@ -158,6 +166,7 @@ Feature: Services Nearby and Retail Outlet Locator
 
   @locationPermission @allowGPS @sprint2
   Scenario: Verify RO locator when GPS is allowed
+    Given The user logs in to the app
     Given The user is on the Main Dashboard
     When The user taps Locate Now
     And The user allows the GPS prompt
@@ -165,6 +174,7 @@ Feature: Services Nearby and Retail Outlet Locator
 
   @locationPermission @denyGPS @sprint2
   Scenario: Verify RO locator when GPS is denied
+    Given The user logs in to the app
     Given The user is on the Main Dashboard
     When The user taps Locate Now
     And The user denies the GPS prompt
@@ -175,6 +185,7 @@ Feature: Services Nearby and Retail Outlet Locator
 
   @retailers @sprint2
   Scenario: Verify MAK authorised retailers near Sewri
+    Given The user logs in to the app
     Given The user is on the Main Dashboard
     When The user ensures a location is set
     And The user opens Services Nearby
@@ -189,12 +200,14 @@ Feature: Services Nearby and Retail Outlet Locator
 
   @noInternet @sprint2
   Scenario: Verify offline popup in RO Locator
+    Given The user logs in to the app
     Given The user is on the Main Dashboard
     When The user opens Services Nearby
     Then The offline popup should be displayed
 
   @locateNowTabNavigation @sprint2
   Scenario: Verify navigation between RO Locator categories
+    Given The user logs in to the app
     Given The user is on the Main Dashboard
     When The user opens Services Nearby
     And The user dismisses the Services Nearby overlay
@@ -216,6 +229,7 @@ Feature: Services Nearby and Retail Outlet Locator
 
   @currentLocation @sprint2
   Scenario: Verify current location action in RO Locator
+    Given The user logs in to the app
     Given The user is on the Main Dashboard
     When The user opens Services Nearby
     And The user dismisses the Services Nearby overlay
@@ -225,7 +239,13 @@ Feature: Services Nearby and Retail Outlet Locator
 
   @alone @sprint3
   Scenario: Verify On clicking RO Locator button, a signup popup should be visible
-    When The user clicks on RO Locator
+    Given The user logs in to the app
+    When The user opens Profile
+    And The user clicks Logout
+    Then The logout confirmation popup should be displayed
+    When The user confirms Sign Out
+    Then The Sign In screen should be displayed
+    When The user opens Services Nearby
     Then The signup popup is displayed
 
   @sprint1
@@ -240,12 +260,14 @@ Feature: Services Nearby and Retail Outlet Locator
 
   @sprint3
   Scenario: Verify user can open Retail Outlet Locator screen
+    Given The user logs in to the app
     When The user ensures a location is set
     When The user clicks on Locate Now
     Then Nearby Retail Outlet should be displayed
 
   @sprint3
   Scenario: Verify allow location permission flow
+    Given The user logs in to the app
     Given Location permission is allowed
     When The user clicks on Locate Now
     And The user selects MAK Garage filter
@@ -255,6 +277,7 @@ Feature: Services Nearby and Retail Outlet Locator
 
   @sprint3
   Scenario: Verify deny location permission flow
+    Given The user logs in to the app
     Given Location permission is not granted
     When The user clicks on Locate Now
     And The user denies location permission
@@ -263,6 +286,7 @@ Feature: Services Nearby and Retail Outlet Locator
 
   @sprint3
   Scenario: Verify manual location selection using location or pincode
+    Given The user logs in to the app
     Given Location permission is not granted
     When The user clicks on Locate Now
     And The user denies location permission
@@ -275,12 +299,14 @@ Feature: Services Nearby and Retail Outlet Locator
 
   @location @sprint3
   Scenario: Current Location Detection
+    Given The user logs in to the app
     When The user clicks on Locate Now
     When The user enables the GPS
     Then The user is able to see their current location
 
   @location2 @sprint3
   Scenario: Search Location and verify outlets
+    Given The user logs in to the app
     When The user clicks on Locate Now
     When The user clears the search box
     Then The user enters the address
@@ -289,12 +315,14 @@ Feature: Services Nearby and Retail Outlet Locator
 
   @location3 @sprint3
   Scenario: Search the location and verify the suggestions
+    Given The user logs in to the app
     When The user clicks on Locate Now
     When The user clears the search box
     Then The user verifies the suggestion dropdown
 
   @location4 @sprint3
   Scenario: Verify MAK Garage page
+    Given The user logs in to the app
     When The user clicks on Locate Now
     When The user clears the search box
     Then The user enters the address
@@ -306,6 +334,7 @@ Feature: Services Nearby and Retail Outlet Locator
     Given The user logs in to the app
     Given The user opens the Locate Now page
     When The user clicks on MAK Garage
+    And The user dismisses the Services Nearby overlay
     And The user searches for "Sewri"
     And The user verifies Call, Share and Directions actions
     Then Dialer, Share Sheet and Maps application should open successfully

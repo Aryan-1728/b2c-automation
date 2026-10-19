@@ -103,11 +103,16 @@ public class ProfileOptionsPage {
     // 7. Logout
     // --------------------------------------------------
 
-    public void clickLogout() {
+    public void scrollLogout() {
         WebElement logout = DriverManager.getWait()
                 .until(ExpectedConditions.visibilityOfElementLocated(
-                        ProfileOptionsLocator.LOGOUT));
+                        ProfileOptionsLocator.LOGOUT_SCROLL));
         logout.click();
+    }
+
+    public void clickLogout(){
+        WebElement clickLogout = DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(ProfileOptionsLocator.LOGOUT_BUTTON));
+        clickLogout.click();
     }
 
     public void verifyLogoutConfirmationPopup() {

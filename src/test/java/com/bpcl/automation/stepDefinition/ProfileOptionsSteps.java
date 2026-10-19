@@ -63,6 +63,7 @@ public class ProfileOptionsSteps {
 
     @When("The user clicks Logout")
     public void theUserClicksLogout() {
+        profileOptionsPage.scrollLogout();
         profileOptionsPage.clickLogout();
     }
 

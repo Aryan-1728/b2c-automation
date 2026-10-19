@@ -32,7 +32,7 @@ public class ROLocatorPage {
     public void openServicesNearby() {
         DriverManager.getWait()
                 .until(ExpectedConditions.elementToBeClickable(
-                        ROLocatorlocator.LOCATE_NOW))
+                        ROLocatorlocator.LOCATE_NOW_BUTTON))
                 .click();
     }
 

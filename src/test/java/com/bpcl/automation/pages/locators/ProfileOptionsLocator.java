@@ -70,8 +70,9 @@ public final class ProfileOptionsLocator {
 
 
 
-    public static final By LOGOUT =
+    public static final By LOGOUT_SCROLL =
             AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true))" + ".scrollIntoView(new UiSelector().resourceId(\"com.acn.bootstrap:id/tvLogout\"))");
+    public static final By LOGOUT_BUTTON = AppiumBy.xpath("//android.widget.TextView[@resource-id=\"com.acn.bootstrap:id/tvLogout\"]");
 
     public static final By LOGOUT_CONFIRMATION =
             AppiumBy.xpath(
