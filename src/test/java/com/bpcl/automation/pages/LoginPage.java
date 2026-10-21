@@ -14,16 +14,27 @@ public class LoginPage {
 
     // Array containing 10 test mobile numbers
     private static final String[] MOBILE_NUMBERS = {
-            "7080713132",
-            "7080713133",
-            "7080713134",
-            "7080713135",
-            "7080713136",
-            "7080713137",
-            "7080713138",
-            "7080713139",
-            "7080713140",
-            "7080713141"
+            "7080718123",
+            "7080718124",
+            "7080718125",
+            "7080718126",
+            "7080718127",
+            "7080718128",
+            "7080718129",
+            "7080718160",
+            "7080718171",
+            "7080718172",
+            "7080718172",
+            "7080718174",
+            "7080718175",
+            "7080718176",
+            "7080718177",
+            "7080718178",
+            "7080718179",
+            "7080718102",
+            "7080718103",
+            "7080718108",
+            
     };
 
     // Random number generator
@@ -86,7 +97,7 @@ public class LoginPage {
                 ExpectedConditions.visibilityOfElementLocated(
                         loginLocator.existingUserMpin
                 )
-        ).sendKeys("6666");
+        ).sendKeys("1111");
 
         DriverManager.getWait().until(
                 ExpectedConditions.elementToBeClickable(
@@ -156,14 +167,14 @@ public class LoginPage {
                 ExpectedConditions.visibilityOfElementLocated(
                         loginLocator.newMpin
                 )
-        ).sendKeys("6666");
+        ).sendKeys("1111");
 
         // Confirm new MPIN
         DriverManager.getWait().until(
                 ExpectedConditions.visibilityOfElementLocated(
                         loginLocator.confirmMpin
                 )
-        ).sendKeys("6666");
+        ).sendKeys("1111");
 
         // Click Confirm
         DriverManager.getWait().until(
